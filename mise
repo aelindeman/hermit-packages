@@ -2,6 +2,14 @@ description = "The front-end to your dev env"
 binaries = ["mise"]
 test = "mise --version"
 source = "https://github.com/jdx/mise/releases/download/v${version}/mise-v${version}-${os}-${arch_}"
+
+on "unpack" {
+  rename {
+    from = "${root}/mise-v${version}-${os}-${arch_}"
+    to = "${root}/mise"
+  }
+}
+
 vars = {
   "arch_": "${arch}",
 }
